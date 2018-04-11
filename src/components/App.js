@@ -7,7 +7,6 @@ class App extends Component {
   constructor() {
     super()
   }
-
   render() {
     return (
       <div>
@@ -17,7 +16,7 @@ class App extends Component {
         <WelcomeDescription />
       </div>
     );
-  } 
+  }
 }
 
 export default App;

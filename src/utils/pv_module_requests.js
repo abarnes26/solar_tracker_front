@@ -1,4 +1,4 @@
-
+import handleResponse from './request_helpers'
 
 const postPvModuleHeaders = (moduleOutput, moduleManufacturer, moduleModel, moduleEff, moduleWidth, moduleHeight, branchId) => {
   return {
@@ -50,4 +50,12 @@ const deletePvModule = id => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`, deletePvModuleHeaders()
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
+}
+
+module.exports = {
+  addPvModule,
+  getAllPvModules,
+  getPvModule,
+  updatePvModule,
+  deletePvModule
 }

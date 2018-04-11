@@ -1,4 +1,4 @@
-
+import handleResponse from './request_helpers'
 
 const postProjectHeaders = (projectStreet, projectCity, projectState, projectZipcode, projectCustomer, projectSize, projectNumberOfMods, branch, pv_module) => {
   return {
@@ -58,4 +58,12 @@ const deleteProject = (branch_id, id) => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branch_id}/projects/${id}`, deleteProjectHeaders()
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
+}
+
+module.exports = {
+  addProject,
+  getAllProjects,
+  getProject,
+  updateProject,
+  deleteProject
 }

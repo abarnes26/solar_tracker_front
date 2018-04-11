@@ -26,3 +26,9 @@ const addAccount = (email, password) => {
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
+
+module.exports = {
+  postAccountHeaders,
+  addAccount,
+  handleResponse
+}

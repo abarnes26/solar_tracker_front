@@ -1,4 +1,4 @@
-
+import handleResponse from './request_helpers'
 
 const postVehicleHeaders = (vehicleMake, vehicleModel, vehicleMpg) => {
   return {
@@ -50,4 +50,12 @@ const deleteVehicle = id => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`, deleteVehicleHeaders()
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
+}
+
+module.exports = {
+  addVehicle,
+  getAllVehicles,
+  getVehicle,
+  updateVehicle,
+  deleteVehicle
 }
