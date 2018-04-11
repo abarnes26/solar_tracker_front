@@ -18,9 +18,9 @@ class Branch extends Component {
 
   render() {
     const branchList = this.state.branches.map(branch => {
-      return <li>{branch.att}</li>
+      return <li>{branch.city}</li>
     })
-    
+
     return (
       <ul>
         {branchList}

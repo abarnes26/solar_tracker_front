@@ -12,7 +12,7 @@ class Dashboard extends Component {
     return (
       <div>
         <NavBar />
-        <CreateAccount />
+        
       </div>
     );
   }
