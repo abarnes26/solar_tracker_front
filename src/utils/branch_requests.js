@@ -21,7 +21,7 @@ const deleteBranchHeaders = id => {
 }
 
 const addBranch = (street, city, state, zipcode) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`, postHeaders(email, password))
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`, postHeaders(street, city, state, zipcode))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }

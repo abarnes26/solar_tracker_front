@@ -23,7 +23,7 @@ const deleteVehicleHeaders = () => {
 }
 
 const addVehicle = (make, model, mpg) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles`, postHeaders(email, password))
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles`, postHeaders(make, model, mpg))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
@@ -40,7 +40,7 @@ const getVehicle = id => {
     .catch((error) => console.error({ error }))
 }
 
-const updateVehicle = id => {
+const updateVehicle = (id, attr, value) => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`, updateVehicleHeaders(attr, value)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
