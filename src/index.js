@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-// import App from './App';
-import {NavBar} from './welcome'
+import './stylesheets/index.css';
+import App from './components/App'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<NavBar />, document.getElementById('nav-bar'));
-// registerServiceWorker();
+ReactDOM.render(<App />, document.getElementById('app'));
