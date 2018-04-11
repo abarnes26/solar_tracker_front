@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
+#app-description-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.app-description-card {
+  margin-top: 1%;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  border: 1px solid black;
+  margin-bottom: 60px;
+
+}
+
+.app-description-logo-container{
+  display: inline-grid;
+  height: 75px;
+  width: auto;
+  border: solid black 7px;
+  border-radius: 45px;
+  padding: 15px;
+}
+
+.app-description-text-container {
+  width: 40%;
+}
+
+.description-image {
+  padding: 2px;
+  height: 60px;
+  width: auto;
+}
+
+.description-text {
+font-family: 'Do Hyeon', sans-serif;
+font-size: 25px;
+}

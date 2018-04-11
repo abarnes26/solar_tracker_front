@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
+import '../stylesheets/welcome.css'
 
-export class NavBar extends Component {
-  constructor(props) {
-    super(props)
-  }
+class NavBar extends Component {
   render() {
-  //   let links
-  //   let loggedIn
-  //
-  //   if (loggedIn) {
-  //   links = ['Log out']
-  // } else {
-  //   links = ['Sign Up', 'Log In']
-  // }
-
-    // const navBarLinks = links.map()
     return (
       <div className="nav-bar-container">
         <div className="nav-bar-title">
           <h1>Carbon Impact Tracker</h1>
+          <img className="nav-bar-icon" src="http://www.free-icons-download.net/images/leaf-icon-72023.png" />
         </div>
-        <div className="nav-bar-links">
+        <div className="nav-bar-link-container">
           <a href='./signup.html'>Sign Up</a>
           <a href='./login.html'>Log In</a>
         </div>
@@ -28,3 +17,5 @@ export class NavBar extends Component {
     )
   }
 }
+
+export default NavBar
