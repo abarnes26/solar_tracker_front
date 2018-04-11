@@ -1,10 +1,10 @@
 
 
-const postVehicleHeaders = (vehicleStreet, vehicleCity, vehicleState, vehicleZipcode) => {
+const postVehicleHeaders = (vehicleMake, vehicleModel, vehicleMpg) => {
   return {
     method: `POST`,
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ vehicle: { street: vehicleStreet, city: vehicleCity, state: vehicleState, zipcode: vehicleZipcode }})
+    body: JSON.stringify({ vehicle: { make: vehicleMake, model: vehicleModel, mpg: vehicleMpg }})
   }
 }
 
@@ -16,13 +16,13 @@ const updateVehicleHeaders = (attr, value) => {
   }
 }
 
-const deleteVehicleHeaders = id => {
+const deleteVehicleHeaders = () => {
   return {
     method: `DELETE`,
   }
 }
 
-const addVehicle = (street, city, state, zipcode) => {
+const addVehicle = (make, model, mpg) => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles`, postHeaders(email, password))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
