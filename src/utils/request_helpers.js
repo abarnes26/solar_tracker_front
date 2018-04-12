@@ -22,13 +22,20 @@ const postAccountHeaders = (userEmail, userPassword) => {
 }
 
 const addAccount = (email, password) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/users`, postHeaders(email, password))
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/users`, postAccountHeaders(email, password))
+    .then((response) => handleResponse(response))
+    .catch((error) => console.error({ error }))
+}
+
+const loginUser = (email, password) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/users`, postAccountHeaders(email, password))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
 module.exports = {
-  postAccountHeaders,
   addAccount,
-  handleResponse
+  loginUser,
+  handleResponse,
+  postAccountHeaders
 }

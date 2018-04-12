@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar'
-import CreateAccount from './CreateAccount'
-import '../stylesheets/app.css';
+import DashboardCarbonContainer from './DashboardCarbonContainer'
 
 class Dashboard extends Component {
   constructor() {
@@ -11,11 +9,10 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <CreateAccount />
+        <DashboardCarbonContainer/>
       </div>
     );
   }
 }
 
-export default App;
+export default Dashboard;
