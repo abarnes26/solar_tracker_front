@@ -4,15 +4,15 @@ const postProjectHeaders = (projectStreet, projectCity, projectState, projectZip
   return {
     method: `POST`,
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ project: { street:                 projectMake,
-                                        city:                 projectModel,
+    body: JSON.stringify([{ project: { street:                projectStreet,
+                                        city:                 projectCity,
                                         state:                projectState,
                                         zipcode:              projectZipcode,
-                                        customer_name:        projectMpg,
-                                        size_kW:              projectMpg,
-                                        number_of_pv_modules: projectNumberOfMods},
+                                        customer_name:        projectCustomer,
+                                        size_kW:              projectSize,
+                                        number_of_pv_modules: projectNumberOfMods}},
                                         {branch: {id: branch}},
-                                        {pv_module: {id: pv_module}}})
+                                        {pv_module: {id: pv_module}}])
   }
 }
 
@@ -30,40 +30,32 @@ const deleteProjectHeaders = () => {
   }
 }
 
-const addProject = (street, city, state, zipcode, customer_name, size_kW, number_of_pv_modules, branch_id, pv_module_id) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/projects`, postHeaders(street, city, state, zipcode, customer_name, size_kW, number_of_pv_modules, branch_id, pv_module_id))
+export const postProject = (street, city, state, zipcode, customer_name, size_kW, number_of_pv_modules, branchId, pv_module_id) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}`, postProjectHeaders(street, city, state, zipcode, customer_name, size_kW, number_of_pv_modules, branchId, pv_module_id))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const getAllProjects = branch_id => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branch_id}/projects`)
+export const getAllProjects = branchId => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const getProject = (branch_id, id) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branch_id}/projects/${id}`)
+export const getProject = (branchId, id) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects/${id}`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const updateProject = (branch_id, id, attr, value) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branch_id}/projects/${id}`, updateProjectHeaders(attr, value)
+export const updateProject = (branchId, id, attr, value) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects/${id}`, updateProjectHeaders(attr, value))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const deleteProject = (branch_id, id) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branch_id}/projects/${id}`, deleteProjectHeaders()
+export const deleteProject = (branchId, id) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects/${id}`, deleteProjectHeaders())
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
-}
-
-module.exports = {
-  addProject,
-  getAllProjects,
-  getProject,
-  updateProject,
-  deleteProject
 }

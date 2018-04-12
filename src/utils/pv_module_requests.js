@@ -22,32 +22,32 @@ const deletePvModuleHeaders = () => {
   }
 }
 
-const addPvModule = (output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles`, postHeaders(output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId))
+const postPvModule = (output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/modules`, postHeaders(output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
 const getAllPvModules = () => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles`)
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/modules`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
 const getPvModule = id => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`)
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/modules/${id}`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
 const updatePvModule = (id, attr, value) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`, updatePvModuleHeaders(attr, value)
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/modules/${id}`, updatePvModuleHeaders(attr, value)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
 const deletePvModule = id => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/vehicles/${id}`, deletePvModuleHeaders()
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/modules/${id}`, deletePvModuleHeaders()
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }

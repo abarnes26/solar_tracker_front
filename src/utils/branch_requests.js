@@ -1,4 +1,4 @@
-import handleResponse from './request_helpers'
+import { handleResponse } from './request_helpers'
 
 const postBranchHeaders = (branchStreet, branchCity, branchState, branchZipcode) => {
   return {
@@ -22,40 +22,33 @@ const deleteBranchHeaders = () => {
   }
 }
 
-const addBranch = (street, city, state, zipcode) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`, postHeaders(street, city, state, zipcode))
+export const postBranch = (street, city, state, zipcode) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches?branch[street]=${street}&branch[city]=${city}&branch[state]=${state}&branch[zipcode]=${zipcode}`, {method: 'POST'})
+  // return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`, postBranchHeaders(street, city, state, zipcode))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const getAllBranches = () => {
+export const getAllBranches = () => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const getBranch = id => {
+export const getBranch = id => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`)
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const updateBranch = (id, attr, value) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`, updateBranchHeaders(attr, value)
+export const updateBranch = (id, attr, value) => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`, updateBranchHeaders(attr, value))
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }
 
-const deleteBranch = id => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`, deleteBranchHeaders()
+export const deleteBranch = id => {
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`, deleteBranchHeaders())
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
-}
-
-module.exports = {
-  addBranch,
-  getAllBranches,
-  getBranch,
-  updateBranch,
-  deleteBranch
 }

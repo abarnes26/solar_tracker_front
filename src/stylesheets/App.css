@@ -38,3 +38,9 @@
 font-family: 'Do Hyeon', sans-serif;
 font-size: 25px;
 }
+
+.new-branch-form-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}

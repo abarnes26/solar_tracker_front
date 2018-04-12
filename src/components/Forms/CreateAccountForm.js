@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {addAccount} from '../utils/requests'
+import { addAccount } from '../../utils/request_helpers'
 
 
 class CreateAccountForm extends Component {

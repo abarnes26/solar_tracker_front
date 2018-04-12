@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { getAllBranches } from '../utils/branch_requests'
 
-class Branch extends Component {
+class BranchList extends Component {
   constructor() {
     super()
     this.state = {
@@ -9,8 +10,7 @@ class Branch extends Component {
   }
 
   componentDidMount = () => {
-    fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches`)
-      .then((response) => response.json())
+    getAllBranches()
       .then((data) => this.setState({
         branches: data
       }) )

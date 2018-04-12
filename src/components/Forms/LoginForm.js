@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import {login} from '../utils/requests'
+import {loginUser} from '../../utils/request_helpers'
 
 
 class LoginForm extends Component {
@@ -19,13 +19,12 @@ class LoginForm extends Component {
     event.preventDefault()
     let email = this.state.email
     let password = this.state.password
-    addAccount(email, password)
+    loginUser(email, password)
   }
 
   render() {
     return (
       <div className="session-form-container">
-        <h2>Create a new account</h2>
         <form className="session-form">
           <input
             className="input"

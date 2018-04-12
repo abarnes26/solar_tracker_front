@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {addBranch} from '../utils/branch_requests'
+import { postBranch } from '../../utils/branch_requests'
 
 class AddNewBranchForm extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class AddNewBranchForm extends Component {
     let city = this.state.city
     let state = this.state.state
     let zipcode = this.state.zipcode
-    addAccount(street, city, state, zipcode)
+    postBranch(street, city, state, zipcode)
   }
 
   render() {
