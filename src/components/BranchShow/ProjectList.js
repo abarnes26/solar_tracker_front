@@ -9,21 +9,28 @@ class ProjectList extends Component {
     }
   }
 
-  render() {
-    const projectList = this.state.projects.map(project => {
-      return <li>{project.street}, {project.customer_name}</li>
-    })
+  componentDidMount = () => {
+    getAllProjects()
+      .then((data) => this.setState({
+        projects: data
+      }) )
+  }
 
+  render() {
+    const projectList = () => {
+      if (this.state.projects.length > 0) {
+        this.state.projects.map(project => {
+        return <li>{project.street}, {project.customer_name}</li>
+        })
+      } else {
+        return "You currently have no projects"
+      }
+    }
 
     return (
-      <div className="project-list-container">
-        <div className="project-list">
-          <h3>{this.props.category} projects </h3>
           <ul>
             {projectList}
           </ul>
-        </div>
-      </div>
     )
   }
 }

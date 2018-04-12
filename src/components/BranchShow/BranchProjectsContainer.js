@@ -46,10 +46,12 @@ class BranchProjectsContainer extends Component {
           </Link>
         </div>
         <div className="active-project-list">
-          <ProjectList projects={activeProjects} category='Active' />
+        <h3>Active projects </h3>
+          <ProjectList projects={activeProjects} />
         </div>
         <div className="completed-project-list">
-          <ProjectList projects={completedProjects} category='Completed' />
+        <h3>Completed projects </h3>
+          <ProjectList projects={completedProjects} />
         </div>
       </div>
     )
