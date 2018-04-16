@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { postProject } from '../../utils/project_requests'
-import Dropdown from 'react-dropdown'
+import DropdownInput from 'react-dropdown'
 import 'react-dropdown/style.css'
 
 class AddNewProjectForm extends Component {
@@ -14,12 +14,17 @@ class AddNewProjectForm extends Component {
       customerName: "",
       sizeKw: "",
       numberOfModules: "",
-      moduleId: ""
+      moduleName: "",
+      vehicleName: ""
     }
   }
 
   updateField = (key, event) => {
     this.setState({ [key]: event.target.value })
+  }
+
+  updateDropDown = (key, event) => {
+    this.setState({ [key]: event.value })
   }
 
   addProject= (event) => {
@@ -31,15 +36,20 @@ class AddNewProjectForm extends Component {
     let customerName = this.state.customerName
     let sizeKw = this.state.sizeKw
     let numberOfModules = this.state.numberOfModules
-    let moduleId = this.state.moduleId
+    let moduleName = this.state.moduleName
+    let vehicleName = this.state.vehicleName
     let branchId = this.props.branchId
-    postProject(street, city, state, zipcode, customerName, sizeKw, numberOfModules, moduleId, branchId)
+    postProject(street, city, state, zipcode, customerName, sizeKw, numberOfModules, branchId, moduleName, vehicleName)
   }
 
   render() {
-    const branchModules = (this.props.branchId) => {
+    const moduleList = this.props.branchModules.map(pvModule => {
+      return pvModule.manufacturer + '-' + pvModule.model
+    })
+    const vehicleList = this.props.branchVehicles.map(vehicle => {
+      return vehicle.make + '-' + vehicle.model
+    })
 
-    }
     return (
       <div className="new-branch-form-container">
         <h2>Add a new Branch</h2>
@@ -93,18 +103,19 @@ class AddNewProjectForm extends Component {
             value={ this.state.numberOfModules }
             onChange={ this.updateField.bind(this, 'numberOfModules' )}
           />
-          <input
-            className="input"
-            type="integer"
-            placeholder="Size kW"
-            value={ this.state.sizeKw }
-            onChange={ this.updateField.bind(this, 'sizeKw' )}
+          <DropdownInput
+              options={moduleList}
+              menuClassName='dropdown-input'
+              onChange={ this.updateDropDown.bind(this, 'moduleName' )}
+              value={ this.state.moduleName }
+              placeholder='Select a Module'
           />
-          <Dropdown
-            options={branchModules}
-            onChange={  this.updateField.bind(this, 'moduleId' )}
-            value={ this.state.moduleId }
-            placeholder="Select a Module"
+          <DropdownInput
+              options={vehicleList}
+              menuClassName='dropdown-input'
+              onChange={ this.updateDropDown.bind(this, 'vehicleName' )}
+              value={ this.state.vehicleName }
+              placeholder='Select a Vehicle'
           />
           <button
             className="submit-branch-button"
@@ -117,4 +128,4 @@ class AddNewProjectForm extends Component {
   }
 }
 
-export default AddNewBranchForm;
+export default AddNewProjectForm;

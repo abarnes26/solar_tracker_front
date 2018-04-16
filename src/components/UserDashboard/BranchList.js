@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getAllBranches } from '../utils/branch_requests'
+import { getAllBranches } from '../../utils/branch_requests'
 
 class BranchList extends Component {
   constructor() {
@@ -30,4 +30,4 @@ class BranchList extends Component {
   }
 }
 
-export default Branch
+export default BranchList

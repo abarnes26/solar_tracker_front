@@ -66,12 +66,12 @@ class BranchCarbonContainer extends Component {
       <div>
         <div className="project-totals">
           <div className="active-project-totals">
-            <p> Active Projects: {activeProjectCount} </p>
-            <p> Active kW: {activeProjectKwTotal} </p>
+            <p> Active Projects: {activeProjectCount()} </p>
+            <p> Active kW: {activeProjectKwTotal()} </p>
           </div>
           <div className="completed-project-totals">
-            <p> Completed Projects: {completedProjectCount} </p>
-            <p> Completed kW: {completedProjectKwTotal} </p>
+            <p> Completed Projects: {completedProjectCount()} </p>
+            <p> Completed kW: {completedProjectKwTotal()} </p>
           </div>
         </div>
         <div className="branch-carbon-graph">

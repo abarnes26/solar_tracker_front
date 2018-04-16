@@ -8,6 +8,9 @@ import CreateAccount from './SessionPages/CreateAccount'
 import Login from './SessionPages/Login'
 import Dashboard from './UserDashboard/Dashboard'
 import BranchShow from './BranchShow/BranchShow'
+import CreatePvModule from './PvModuleNew/CreatePvModule'
+import CreateVehicle from './VehicleNew/CreateVehicle'
+import CreateProject from './ProjectNew/CreateProject'
 
 class App extends Component {
   constructor() {
@@ -24,9 +27,24 @@ class App extends Component {
           <Route exact path='/users/new' component={CreateAccount} />
           <Route exact path='/users/login' component={Login} />
           <Route exact path='/branches/new' component={AddNewBranchForm} />
-          <Route exact path='/branches/:id' render={({ match }) => {
+          <Route exact path='/modules/new/branch/:id' render={({ match }) => {
           	const { id } = match.params
-          	  return <BranchShow branchId={id} />
+          	  return <CreatePvModule branchId = {id} />
+              }
+          	}/>
+            <Route exact path='/vehicles/new/branch/:id' render={({ match }) => {
+            	const { id } = match.params
+            	  return <CreateVehicle branchId = {id} />
+                }
+            	}/>
+          <Route exact path='/projects/new/branch/:id' render={({ match }) => {
+          	const { id } = match.params
+          	  return <CreateProject branchId = {id} />
+              }
+          	}/>
+          <Route path='/branches/:id' render={({ match }) => {
+          	const { id } = match.params
+          	  return <BranchShow branchId = {id} />
           	}
           }/>
           <Route exact path='/dashboard' component={Dashboard} />
