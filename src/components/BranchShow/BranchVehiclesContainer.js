@@ -5,17 +5,33 @@ import VehicleList from './VehicleList'
 
 
 class BranchVehiclesContainer extends Component {
+  constructor() {
+    super()
+    this.state = {
+      vehicles: []
+    }
+  }
+
+  componentDidMount = () => {
+    getAllVehicles(this.props.branchId)
+      .then((data) => this.setState({
+        vehicles: data
+      }) )
+  }
+
   render() {
+  const address = `/vehicles/new/branch/${this.props.branchId}`
+
     return (
       <div className="vehicle-list-container">
         <div>
-          <Link to='/branches/{this.props.branchId}/vehicles/new'>
-            <button>Add a new vehicle </button>
+          <Link to={address}>
+            Add a new vehicle
           </Link>
         </div>
         <div className="branch-vehicle-list">
           <h3>Current Vehicles </h3>
-          <VehicleList branchId={this.props.branchId} />
+          <VehicleList vehicles={this.state.vehicles} />
         </div>
       </div>
     )

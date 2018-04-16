@@ -5,7 +5,7 @@ class AddNewModuleForm extends Component {
   constructor() {
     super()
     this.state = {
-      outputW = "",
+      outputW: "",
       manufacturer: "",
       model: "",
       efficiency: "",
@@ -33,6 +33,7 @@ class AddNewModuleForm extends Component {
   render() {
     return (
       <div className="new-branch-form-container">
+      {console.log(this.props.branchId)}
         <h2>Add a new PV Module to your Branch</h2>
         <form className="new-module-form">
           <input
