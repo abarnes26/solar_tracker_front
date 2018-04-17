@@ -5,40 +5,40 @@ import { Link } from 'react-router-dom'
 import { deleteProject, updateProject } from '../../utils/project_requests'
 
 class BranchProjectsContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      projects: []
-    }
-  }
-
-  componentDidMount = () => {
-    getAllProjects(this.props.branchId)
-      .then((data) => this.setState({
-        projects: data
-      }) )
-  }
-
-  removeProject = (branchId, projectId) => {
-    deleteProject(branchId, projectId)
-    .then(() => getAllProjects(branchId)
-    .then((data) => this.setState({
-      projects: data
-    }) ))
-  }
-
-  completeProject = (branchId, projectId, attr, value) => {
-    updateProject(branchId, projectId, attr, value)
-    .then(() => getAllProjects(branchId)
-    .then((data) => this.setState({
-      projects: data
-    }) ))
-  }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     projects: []
+  //   }
+  // }
+  //
+  // componentDidMount = () => {
+  //   getAllProjects(this.props.branchId)
+  //     .then((data) => this.setState({
+  //       projects: data
+  //     }) )
+  // }
+  //
+  // removeProject = (branchId, projectId) => {
+  //   deleteProject(branchId, projectId)
+  //   .then(() => getAllProjects(branchId)
+  //   .then((data) => this.setState({
+  //     projects: data
+  //   }) ))
+  // }
+  //
+  // completeProject = (branchId, projectId, attr, value) => {
+  //   updateProject(branchId, projectId, attr, value)
+  //   .then(() => getAllProjects(branchId)
+  //   .then((data) => this.setState({
+  //     projects: data
+  //   }) ))
+  // }
 
   activeProjects = () => {
     let activeList = []
-    if (this.state.projects) {
-    this.state.projects.map(project => {
+    if (this.props.projects) {
+    this.props.projects.map(project => {
       if (project.status == 'active') {
         activeList.push(project)
       }
@@ -49,8 +49,8 @@ class BranchProjectsContainer extends Component {
 
   completedProjects = () => {
     let completeList = []
-    if (this.state.projects) {
-    this.state.projects.map(project => {
+    if (this.props.projects) {
+    this.props.projects.map(project => {
       if (project.status == 'complete') {
         completeList.push(project)
       }
@@ -71,11 +71,11 @@ class BranchProjectsContainer extends Component {
         </div>
         <div className="active-project-list">
         <h3>Active projects </h3>
-          <ProjectList projects={this.activeProjects()} remove={this.removeProject} update={this.completeProject}/>
+          <ProjectList projects={this.activeProjects()} remove={this.props.removeProject} update={this.props.completeProject}/>
         </div>
         <div className="completed-project-list">
         <h3>Completed projects </h3>
-          <ProjectList projects={this.completedProjects()} remove={this.removeProject} update={this.completeProject}/>
+          <ProjectList projects={this.completedProjects()} remove={this.props.removeProject} update={this.props.completeProject}/>
         </div>
       </div>
     )

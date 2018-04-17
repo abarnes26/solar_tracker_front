@@ -16,7 +16,6 @@ class AgeField extends Component {
   updateAge = (event) => {
     event.preventDefault()
     let age = Number(this.state.age)
-    console.log(age)
     this.props.ageUpdate(this.props.project.branch_id, this.props.project.id, 'age_days', age)
   }
 

@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { getAllProjects } from '../../utils/project_requests'
 
 class BranchCarbonContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      projects: []
-    }
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     projects: this.props.projects
+  //   }
+  // }
 
-  componentDidMount = () => {
-    getAllProjects(this.props.branchId)
-      .then((data) => this.setState({
-        projects: data
-      }) )
-  }
+  // componentDidMount = () => {
+  //   getAllProjects(this.props.branchId)
+  //     .then((data) => this.setState({
+  //       projects: data
+  //     }) )
+  // }
 
   render() {
     let activekW = 0
@@ -22,8 +22,8 @@ class BranchCarbonContainer extends Component {
     let completedkW = 0
     let completedCount = 0
 
-    const activeProjectCount = () => { if (this.state.projects) {
-        this.state.projects.map(project => {
+    const activeProjectCount = () => { if (this.props.projects) {
+        this.props.projects.map(project => {
           if (project.status == 'active') {
             activeCount += 1
           }
@@ -32,8 +32,8 @@ class BranchCarbonContainer extends Component {
       return activeCount
     }
 
-    const activeProjectKwTotal = () => { if (this.state.projects) {
-        this.state.projects.map(project => {
+    const activeProjectKwTotal = () => { if (this.props.projects) {
+        this.props.projects.map(project => {
           if (project.status == 'active') {
             activekW += project.size_kW
           }
@@ -42,8 +42,8 @@ class BranchCarbonContainer extends Component {
       return activekW
     }
 
-    const completedProjectCount = () => { if (this.state.projects) {
-        this.state.projects.map(project => {
+    const completedProjectCount = () => { if (this.props.projects) {
+        this.props.projects.map(project => {
           if (project.status == 'complete') {
             completedCount += 1
           }
@@ -52,8 +52,8 @@ class BranchCarbonContainer extends Component {
       return completedCount
     }
 
-    const completedProjectKwTotal = () => { if (this.state.projects) {
-        this.state.projects.map(project => {
+    const completedProjectKwTotal = () => { if (this.props.projects) {
+        this.props.projects.map(project => {
           if (project.status == 'complete') {
             completedkW += project.size_kW
           }
