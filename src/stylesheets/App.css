@@ -44,3 +44,65 @@ font-size: 25px;
   justify-content: center;
   flex-flow: column;
 }
+
+.branch-carbon-totals {
+  display: flex;
+  flex-flow: column;
+  height: 600px;
+  width: 1000px;
+  border: solid 3px black;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.branch-show {
+  display: flex;
+  justify-content: space-around;
+}
+
+.project-list-container, .module-list-container,
+.vehicle-list-container {
+  margin: 40px;
+  border: solid black 4px;
+  padding: 20px;
+}
+
+.list-item {
+  border-bottom: 1px solid black;
+  padding: 3px;
+}
+
+.add-button {
+  text-decoration: none;
+  border: 2px black solid;
+  padding: 6px;
+  border-radius: 11px;
+  color: darkgreen;
+}
+
+.add-button:hover {
+  background-color: WhiteSmoke;
+}
+
+.remove-button {
+  margin-left: 5px;
+  font-size: 12px;
+  border-radius: 13px;
+  align-self: flex-end;
+}
+
+.remove-button:hover {
+  background-color: Tomato;
+}
+
+.create-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.create-form {
+  display: flex;
+  flex-flow: column;
+  border: 1px black solid;
+  width: 70%;
+}

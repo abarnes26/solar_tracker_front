@@ -52,7 +52,6 @@ class AddNewProjectForm extends Component {
 
     return (
       <div className="new-branch-form-container">
-        <h2>Add a new Branch</h2>
         <form className="new-account-form">
           <input
             className="input"
@@ -120,7 +119,7 @@ class AddNewProjectForm extends Component {
           <button
             className="submit-branch-button"
             onClick={ this.addProject }
-          >
+          >Create Project
           </button>
         </form>
       </div>

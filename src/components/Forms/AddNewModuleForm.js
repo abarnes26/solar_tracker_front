@@ -81,7 +81,7 @@ class AddNewModuleForm extends Component {
           <button
             className="submit-module-button"
             onClick={ this.addPvModule }
-          >
+          >Create Module
           </button>
         </form>
       </div>

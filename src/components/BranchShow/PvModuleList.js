@@ -5,8 +5,8 @@ class PvModuleList extends Component {
       if (this.props.pvModules.length > 0) {
         return (
         this.props.pvModules.map(pvModule => {
-        return <li key={pvModule.id}>{pvModule.manufacturer}, {pvModule.model}
-                            <button onClick={() => this.props.remove(pvModule.branch_id, pvModule.id)}>delete</button>
+        return <li className="list-item" key={pvModule.id}>{pvModule.manufacturer}, {pvModule.model}
+                            <button className='remove-button' onClick={() => this.props.remove(pvModule.branch_id, pvModule.id)}>delete</button>
                     </li>
         })
        )

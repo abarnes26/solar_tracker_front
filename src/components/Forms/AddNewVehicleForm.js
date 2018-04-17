@@ -53,7 +53,7 @@ class AddNewVehicleForm extends Component {
           <button
             className="submit-branch-button"
             onClick={ this.addVehicle }
-          >
+          >Create Vehicle
           </button>
         </form>
       </div>
