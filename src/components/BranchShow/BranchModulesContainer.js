@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PvModuleList from './PvModuleList'
-import { getAllPvModules } from '../../utils/pv_module_requests'
+import { getAllPvModules, deletePvModule } from '../../utils/pv_module_requests'
 
 class BranchModulesContainer extends Component {
   constructor() {
@@ -18,6 +18,14 @@ class BranchModulesContainer extends Component {
       }) )
   }
 
+  removeModule = (branchId, pvModuleId) => {
+    deletePvModule(branchId, pvModuleId)
+    .then(() => getAllPvModules(branchId)
+    .then((data) => this.setState({
+      pvModules: data
+    }) ))
+  }
+
   render() {
     const address = `/modules/new/branch/${this.props.branchId}`
 
@@ -30,7 +38,7 @@ class BranchModulesContainer extends Component {
         </div>
         <div className="branch-module-list">
           <h3>Current Modules </h3>
-          <PvModuleList pvModules={this.state.pvModules}/>
+          <PvModuleList pvModules={this.state.pvModules} remove={this.removeModule}/>
         </div>
       </div>
     )

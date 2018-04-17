@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { getAllVehicles, deleteVehicle } from '../../utils/vehicle_requests'
 
 class VehicleList extends Component {
   render() {
-      if (this.props.vehicles) {
+      if (this.props.vehicles.length > 0) {
         return (
         this.props.vehicles.map(vehicle => {
         return <li key={vehicle.id}>{vehicle.make}, {vehicle.model}
-                            <button onClick={() => deleteVehicle(vehicle.branch_id, vehicle.id)}>delete</button>
+                            <button onClick={() => this.props.remove(vehicle.branch_id, vehicle.id)}>delete</button>
                     </li>
         })
        )
