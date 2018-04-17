@@ -106,3 +106,15 @@ font-size: 25px;
   border: 1px black solid;
   width: 70%;
 }
+
+.bar-carbon-graph {
+}
+
+.branch-carbon-graph {
+  display: flex;
+}
+
+.project-totals {
+  display: flex;
+  justify-content: space-around;
+}
