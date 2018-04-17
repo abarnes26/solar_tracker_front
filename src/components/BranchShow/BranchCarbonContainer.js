@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 import { getAllProjects } from '../../utils/project_requests'
+import CarbonBar from './CarbonBar'
+import CarbonLine from './CarbonLine'
+
 
 class BranchCarbonContainer extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     projects: this.props.projects
-  //   }
-  // }
-
-  // componentDidMount = () => {
-  //   getAllProjects(this.props.branchId)
-  //     .then((data) => this.setState({
-  //       projects: data
-  //     }) )
-  // }
 
   render() {
     let activekW = 0
     let activeCount = 0
     let completedkW = 0
     let completedCount = 0
+    let completedProjectsList = []
 
     const activeProjectCount = () => { if (this.props.projects) {
         this.props.projects.map(project => {
@@ -62,6 +53,15 @@ class BranchCarbonContainer extends Component {
       return completedkW
     }
 
+    const completedProjects = () => {
+      this.props.projects.map(project => {
+        if (project.status == 'complete') {
+          completedProjectsList.push(project)
+        }
+      })
+      return completedProjectsList
+    }
+
     return (
       <div className="branch-carbon-totals">
         <div className="project-totals">
@@ -74,8 +74,10 @@ class BranchCarbonContainer extends Component {
             <p> Completed kW: {completedProjectKwTotal()} </p>
           </div>
         </div>
+        <h3> Carbon Impact from Completed Projects </h3>
         <div className="branch-carbon-graph">
-
+          <CarbonBar projects={completedProjects()} />
+          <CarbonLine projects={completedProjects()} />
         </div>
       </div>
     );
