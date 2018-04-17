@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { postBranch } from '../../utils/branch_requests'
+import {postBranch} from '../../utils/branch_requests'
 
 class AddNewBranchForm extends Component {
   constructor() {

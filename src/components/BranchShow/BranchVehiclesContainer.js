@@ -33,8 +33,8 @@ class BranchVehiclesContainer extends Component {
     return (
       <div className="vehicle-list-container">
         <div>
-          <Link to={address}>
-            Add a new vehicle
+          <Link to={address} className="add-button">
+            + Vehicle
           </Link>
         </div>
         <div className="branch-vehicle-list">

@@ -11,11 +11,11 @@ class NavBar extends Component {
             <img className="nav-bar-icon" src="http://www.free-icons-download.net/images/leaf-icon-72023.png" />
         </div>
         <div className="nav-bar-link-container">
-          <Link to='/users/new' >
-            Sign Up
+          <Link to='/' >
+            Home
           </Link>
-          <Link to='/users/login' >
-            Log In
+          <Link to='/branches/1' >
+            Branch
           </Link>
         </div>
       </div>

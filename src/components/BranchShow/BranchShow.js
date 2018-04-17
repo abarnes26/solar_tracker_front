@@ -10,12 +10,15 @@ class BranchShow extends Component {
   }
   render() {
     return (
-      <div>
-        <h1> Branch Show </h1>
-        <BranchCarbonContainer branchId={this.props.branchId} />
-        <BranchProjectsContainer branchId={this.props.branchId} />
-        <BranchVehiclesContainer branchId={this.props.branchId}/>
-        <BranchModulesContainer branchId={this.props.branchId}/>
+      <div className="branch-show">
+        <div>
+          <BranchCarbonContainer branchId={this.props.branchId} />
+        </div>
+        <div>
+          <BranchProjectsContainer branchId={this.props.branchId} />
+          <BranchVehiclesContainer branchId={this.props.branchId}/>
+          <BranchModulesContainer branchId={this.props.branchId}/>
+        </div>
       </div>
     );
   }

@@ -5,8 +5,8 @@ class VehicleList extends Component {
       if (this.props.vehicles.length > 0) {
         return (
         this.props.vehicles.map(vehicle => {
-        return <li key={vehicle.id}>{vehicle.make}, {vehicle.model}
-                            <button onClick={() => this.props.remove(vehicle.branch_id, vehicle.id)}>delete</button>
+        return <li className="list-item" key={vehicle.id}>{vehicle.make}, {vehicle.model}
+                            <button className='remove-button' onClick={() => this.props.remove(vehicle.branch_id, vehicle.id)}>delete</button>
                     </li>
         })
        )

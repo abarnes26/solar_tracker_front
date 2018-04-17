@@ -51,7 +51,7 @@ export const getProject = (branchId, id) => {
 }
 
 export const updateProject = (branchId, id, attr, value) => {
-  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects/${id}`, updateProjectHeaders(attr, value))
+  return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/projects/${id}?project[${attr}]=${value}`, {method: 'PATCH'})
     .then((response) => handleResponse(response))
     .catch((error) => console.error({ error }))
 }

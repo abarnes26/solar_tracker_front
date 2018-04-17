@@ -34,9 +34,11 @@ class CreateProject extends Component {
     }
 
     return (
-      <div>
-        <h1>Add a Project</h1>
-        <AddNewProjectForm branchModules={this.state.pvModules} branchId={this.props.branchId} branchVehicles={this.state.vehicles}/>
+      <div className="create-form-container">
+        <div className="create-form">
+          <h1>Add a Project</h1>
+          <AddNewProjectForm branchModules={this.state.pvModules} branchId={this.props.branchId} branchVehicles={this.state.vehicles}/>
+        </div>
       </div>
     );
   }

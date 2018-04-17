@@ -63,7 +63,7 @@ class BranchCarbonContainer extends Component {
     }
 
     return (
-      <div>
+      <div className="branch-carbon-totals">
         <div className="project-totals">
           <div className="active-project-totals">
             <p> Active Projects: {activeProjectCount()} </p>

@@ -32,8 +32,8 @@ class BranchModulesContainer extends Component {
     return (
       <div className="module-list-container">
         <div>
-          <Link to={address}>
-            Add a new module
+          <Link to={address} className="add-button">
+            + Module
           </Link>
         </div>
         <div className="branch-module-list">

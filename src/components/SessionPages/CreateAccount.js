@@ -7,7 +7,7 @@ class CreateAccount extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="create-form">
         <CreateAccountForm />
       </div>
     );
