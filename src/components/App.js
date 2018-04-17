@@ -42,7 +42,7 @@ class App extends Component {
           	  return <CreateProject branchId = {id} />
               }
           	}/>
-          <Route path='/branches/:id' render={({ match }) => {
+          <Route exact path='/branches/:id' render={({ match }) => {
           	const { id } = match.params
           	  return <BranchShow branchId = {id} />
           	}

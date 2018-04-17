@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getAllProjects } from '../../utils/project_requests'
 import ProjectList from './ProjectList'
 import { Link } from 'react-router-dom'
-
+import { deleteProject } from '../../utils/project_requests'
 
 class BranchProjectsContainer extends Component {
   constructor() {
@@ -17,6 +17,14 @@ class BranchProjectsContainer extends Component {
       .then((data) => this.setState({
         projects: data
       }) )
+  }
+
+  removeProject = (branchId, projectId) => {
+    deleteProject(branchId, projectId)
+    .then(() => getAllProjects(branchId)
+    .then((data) => this.setState({
+      projects: data
+    }) ))
   }
 
   activeProjects = () => {
@@ -55,7 +63,7 @@ class BranchProjectsContainer extends Component {
         </div>
         <div className="active-project-list">
         <h3>Active projects </h3>
-          <ProjectList projects={this.activeProjects()} />
+          <ProjectList projects={this.activeProjects()} remove={this.removeProject}/>
         </div>
         <div className="completed-project-list">
         <h3>Completed projects </h3>
