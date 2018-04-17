@@ -38,7 +38,7 @@ class CarbonLine extends Component {
     let utilityCLifespan = [{x: 0, y: 0}]
     let utilityCProduction = 0
     let i
-    for (i = 1; i < 10; i++) {
+    for (i = 1; i < 6; i++) {
       utilityCProduction += annualUtilityCarbon()
       utilityCLifespan.push({x: i, y: utilityCProduction})
     }
@@ -50,7 +50,7 @@ class CarbonLine extends Component {
     let systemCLifespan = []
     let systemCProduction = systemCarbon()
     let i
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 6; i++) {
       systemCProduction += annualSystemCarbon()
       systemCLifespan.push({x: i, y: systemCProduction})
     }
@@ -62,6 +62,9 @@ class CarbonLine extends Component {
       <div className="bar-carbon-graph">
         <h4> Carbon Produced Over Lifespan of Systems </h4>
         <LineChart
+          datapoints
+          className='line-chart'
+          axisLabels={{x: 'Years', y: 'Carbon (MT)'}}
           axes
           width={600}
           height={400}
@@ -69,6 +72,11 @@ class CarbonLine extends Component {
              lifetimeUtilityCProgression(),
              lifetimeSystemCProgression()
           ]}
+          style={{
+                '.label': {
+                  fill: 'black'
+                }
+              }}
         />
       </div>
     )
