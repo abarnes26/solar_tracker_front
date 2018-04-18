@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { postProject } from '../../utils/project_requests'
 import DropdownInput from 'react-dropdown'
 import 'react-dropdown/style.css'
+import { Redirect } from 'react-router'
+
 
 class AddNewProjectForm extends Component {
   constructor() {
@@ -15,7 +17,8 @@ class AddNewProjectForm extends Component {
       sizeKw: "",
       numberOfModules: "",
       moduleName: "",
-      vehicleName: ""
+      vehicleName: "",
+      redirect: false
     }
   }
 
@@ -40,9 +43,12 @@ class AddNewProjectForm extends Component {
     let vehicleName = this.state.vehicleName
     let branchId = this.props.branchId
     postProject(street, city, state, zipcode, customerName, sizeKw, numberOfModules, branchId, moduleName, vehicleName)
+    this.setState({ redirect: true })
+
   }
 
   render() {
+    const { redirect } = this.state
     const moduleList = this.props.branchModules.map(pvModule => {
       return pvModule.manufacturer + '-' + pvModule.model
     })
@@ -51,8 +57,9 @@ class AddNewProjectForm extends Component {
     })
 
     return (
-      <div className="new-branch-form-container">
-        <form className="new-account-form">
+      <div className="new-form-container">
+        <form className="new-project-form">
+          <h1> Add a Project </h1>
           <input
             className="input"
             type="text"
@@ -104,6 +111,7 @@ class AddNewProjectForm extends Component {
           />
           <DropdownInput
               options={moduleList}
+              className="dropdown"
               menuClassName='dropdown-input'
               onChange={ this.updateDropDown.bind(this, 'moduleName' )}
               value={ this.state.moduleName }
@@ -111,17 +119,21 @@ class AddNewProjectForm extends Component {
           />
           <DropdownInput
               options={vehicleList}
+              className="dropdown"
               menuClassName='dropdown-input'
               onChange={ this.updateDropDown.bind(this, 'vehicleName' )}
               value={ this.state.vehicleName }
               placeholder='Select a Vehicle'
           />
           <button
-            className="submit-branch-button"
+            className="submit-form-button"
             onClick={ this.addProject }
           >Create Project
           </button>
         </form>
+        {redirect && (
+          <Redirect to={'/branches/1'}/>
+        )}
       </div>
     );
   }

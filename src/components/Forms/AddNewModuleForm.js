@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postPvModule } from '../../utils/pv_module_requests'
+import { Redirect } from 'react-router'
 
 class AddNewModuleForm extends Component {
   constructor() {
@@ -10,7 +11,8 @@ class AddNewModuleForm extends Component {
       model: "",
       efficiency: "",
       widthMm: "",
-      lengthMm: ""
+      lengthMm: "",
+      redirect: false
     }
   }
 
@@ -23,19 +25,20 @@ class AddNewModuleForm extends Component {
     let outputW = this.state.outputW
     let manufacturer = this.state.manufacturer
     let model = this.state.model
-    let efficiency = this.state.efficiency
+    let efficiency = (this.state.efficiency/100.0)
     let widthMm = this.state.widthMm
     let lengthMm = this.state.lengthMm
     let branchId = this.props.branchId
     postPvModule(outputW, manufacturer, model, efficiency, widthMm, lengthMm, branchId)
+    this.setState({ redirect: true })
   }
 
   render() {
+    const { redirect } = this.state
     return (
-      <div className="new-branch-form-container">
-      {console.log(this.props.branchId)}
-        <h2>Add a new PV Module to your Branch</h2>
+      <div className="new-form-container">
         <form className="new-module-form">
+          <h1>Add a new PV Module</h1>
           <input
             className="input"
             type="integer"
@@ -79,11 +82,14 @@ class AddNewModuleForm extends Component {
             onChange={ this.updateField.bind(this, 'lengthMm') }
           />
           <button
-            className="submit-module-button"
+            className="submit-form-button"
             onClick={ this.addPvModule }
           >Create Module
           </button>
         </form>
+        {redirect && (
+          <Redirect to={'/branches/1'}/>
+        )}
       </div>
     );
   }

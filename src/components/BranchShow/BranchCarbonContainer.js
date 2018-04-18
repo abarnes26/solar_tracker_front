@@ -74,10 +74,12 @@ class BranchCarbonContainer extends Component {
             <p> Completed kW: {completedProjectKwTotal()} </p>
           </div>
         </div>
-        <h3> Carbon Impact from Completed Projects </h3>
-        <div className="branch-carbon-graph">
-          <CarbonBar projects={completedProjects()} />
-          <CarbonLine projects={completedProjects()} />
+        <div className='branch-carbon-graph-container'>
+          <h2 className="carbon-header"> Carbon Impact from Completed Projects </h2>
+          <div className="branch-carbon-graph">
+            <CarbonBar projects={completedProjects()} />
+            <CarbonLine projects={completedProjects()} />
+          </div>
         </div>
       </div>
     );

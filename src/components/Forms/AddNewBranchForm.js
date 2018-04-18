@@ -27,8 +27,8 @@ class AddNewBranchForm extends Component {
 
   render() {
     return (
-      <div className="new-branch-form-container">
-        <h2>Add a new Branch</h2>
+      <div className="new-form-container">
+        <h1>Add a new Branch</h1>
         <form className="new-account-form">
           <input
             className="input"

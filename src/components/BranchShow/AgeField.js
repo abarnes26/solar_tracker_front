@@ -15,6 +15,7 @@ class AgeField extends Component {
 
   updateAge = (event) => {
     event.preventDefault()
+    event.target.blur()
     let age = Number(this.state.age)
     this.props.ageUpdate(this.props.project.branch_id, this.props.project.id, 'age_days', age)
   }
@@ -24,7 +25,17 @@ class AgeField extends Component {
         return (
           <div className="age-form-container">
             <form className="age-form">
-              <NumericInput min={0} max={100} value={this.state.age} onChange={ this.updateField }/>
+                <NumericInput
+                  min={0}
+                  max={100}
+                  value={this.state.age}
+                  onChange={ this.updateField }
+                  style={{
+                    input: {
+                        width: '60px'
+                    }
+                  }}
+                  />
               <button
                 className="submit-age-button"
                 onClick={ this.updateAge }

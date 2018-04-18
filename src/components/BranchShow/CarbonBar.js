@@ -20,7 +20,7 @@ class CarbonBar extends Component {
   systemCarbon = () => {
     let systemCarbon = 0
     this.props.projects.map(project => {
-      systemCarbon += (project.system_carbon_g_per_kWh * project.annual_production_kWh * 30)
+      systemCarbon += (project.total_system_carbon_impact_g)
     })
     return (systemCarbon/ 1000000)
   }
@@ -29,17 +29,22 @@ class CarbonBar extends Component {
   render() {
     return (
       <div className="bar-carbon-graph">
-        <h4> Carbon Produced by Elec Generation (MT) </h4>
+        <h4> Carbon Produced by Elec Generation </h4>
         <BarChart
-          axisLabels={{x: 'My x Axis', y: 'My y Axis'}}
-          height={400}
-          width={400}
-          margin={{top: 0, right: 75, bottom: 75, left: 75}}
+          axisLabels={{ y: 'Carbon (MT)'}}
+          height={450}
+          width={450}
+          margin={{top: 10, right: 75, bottom: 75, left: 75}}
           axes
           data={[
             {x: 'Without Solar', y: this.utilityCarbon()},
             {x: 'With Solar', y: this.systemCarbon()}
           ]}
+          style={{
+                '.label': {
+                  fill: 'black'
+                }
+              }}
         />
       </div>
     )

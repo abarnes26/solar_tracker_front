@@ -37,7 +37,7 @@ export const getAllBranches = () => {
 
 export const getBranch = id => {
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${id}`)
-    .then((response) => handleResponse(response))
+    .then((response) => response.json())
     .catch((error) => console.error({ error }))
 }
 

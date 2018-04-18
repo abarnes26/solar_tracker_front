@@ -26,7 +26,7 @@ class App extends Component {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/users/new' component={CreateAccount} />
           <Route exact path='/users/login' component={Login} />
-          <Route exact path='/branches/new' component={AddNewBranchForm} />
+          <Route exact path='/new/branches' component={AddNewBranchForm} />
           <Route exact path='/modules/new/branch/:id' render={({ match }) => {
           	const { id } = match.params
           	  return <CreatePvModule branchId = {id} />
@@ -37,16 +37,16 @@ class App extends Component {
             	  return <CreateVehicle branchId = {id} />
                 }
             	}/>
-          <Route exact path='/projects/new/branch/:id' render={({ match }) => {
-          	const { id } = match.params
-          	  return <CreateProject branchId = {id} />
-              }
-          	}/>
-          <Route exact path='/branches/:id' render={({ match }) => {
-          	const { id } = match.params
-          	  return <BranchShow branchId = {id} />
-          	}
-          }/>
+            <Route exact path='/projects/new/branch/:id' render={({ match }) => {
+            	const { id } = match.params
+            	  return <CreateProject branchId = {id} />
+                }
+            	}/>
+            <Route exact path='/branches/:id' render={({ match }) => {
+            	const { id } = match.params
+            	  return <BranchShow branchId = {id} />
+              	}
+              }/>
           <Route exact path='/dashboard' component={Dashboard} />
       </div>
     </div>
