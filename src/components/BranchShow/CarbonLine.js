@@ -66,10 +66,17 @@ class CarbonLine extends Component {
     return (
       <div className="bar-carbon-graph">
         <h4> Carbon Produced Over Lifespan of Systems </h4>
+        <div className='legend'>
+          <p>Utility</p>
+          <div className='utility-legend'></div>
+          <p>Solar</p>
+          <div className='solar-legend'></div>
+        </div>
         <LineChart
           className='line-chart'
           axisLabels={{x: 'Years', y: 'Carbon (MT)'}}
           axes
+          lineColors={['#A52A2A', '#FFD700']}
           width={600}
           height={400}
           data={[
