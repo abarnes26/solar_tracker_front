@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postVehicle } from '../../utils/vehicle_requests'
+import { Redirect } from 'react-router'
 
 class AddNewVehicleForm extends Component {
   constructor() {
@@ -7,7 +8,8 @@ class AddNewVehicleForm extends Component {
     this.state = {
       make: "",
       model: "",
-      mpg: ""
+      mpg: "",
+      redirect: false
     }
   }
 
@@ -22,13 +24,15 @@ class AddNewVehicleForm extends Component {
     let mpg = this.state.mpg
     let branchId = this.props.branchId
     postVehicle(branchId, make, model, mpg)
+    this.setState({ redirect: true })
   }
 
   render() {
+    const { redirect } = this.state
     return (
-      <div className="new-vehicle-form-container">
-        <h2>Add a new Vehicle</h2>
+      <div className="new-form-container">
         <form className="new-vehicle-form">
+          <h1>Add a new Vehicle</h1>
           <input
             className="input"
             type="text"
@@ -51,11 +55,14 @@ class AddNewVehicleForm extends Component {
             onChange={ this.updateField.bind(this, 'mpg') }
           />
           <button
-            className="submit-branch-button"
+            className="submit-form-button"
             onClick={ this.addVehicle }
           >Create Vehicle
           </button>
         </form>
+        {redirect && (
+          <Redirect to={'/branches/1'}/>
+        )}
       </div>
     );
   }

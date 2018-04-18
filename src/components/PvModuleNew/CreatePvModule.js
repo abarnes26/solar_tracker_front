@@ -7,9 +7,10 @@ class CreatePvModule extends Component {
   }
   render() {
     return (
-      <div className="create-form">
-        <h1>Add a Module to your branch </h1>
-        <AddNewModuleForm branchId={this.props.branchId}/>
+      <div className="create-form-container">
+        <div className="create-form">
+          <AddNewModuleForm branchId={this.props.branchId}/>
+        </div>
       </div>
     );
   }

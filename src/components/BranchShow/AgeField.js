@@ -15,6 +15,7 @@ class AgeField extends Component {
 
   updateAge = (event) => {
     event.preventDefault()
+    event.target.blur()
     let age = Number(this.state.age)
     this.props.ageUpdate(this.props.project.branch_id, this.props.project.id, 'age_days', age)
   }

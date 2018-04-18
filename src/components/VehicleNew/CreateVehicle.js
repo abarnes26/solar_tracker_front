@@ -7,9 +7,10 @@ class CreateVehicle extends Component {
   }
   render() {
     return (
-      <div className="create-form">
-        <h1>Add a Vehicle to your branch </h1>
-        <AddNewVehicleForm branchId={this.props.branchId}/>
+      <div className="create-form-container">
+        <div className="create-form">
+          <AddNewVehicleForm branchId={this.props.branchId}/>
+        </div>
       </div>
     );
   }

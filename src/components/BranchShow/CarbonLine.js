@@ -22,6 +22,7 @@ class CarbonLine extends Component {
     this.props.projects.map(project => {
       systemCarbon += (project.system_carbon_g_per_kWh * project.annual_production_kWh)
     })
+    console.log(systemCarbon)
     return (systemCarbon/ 1000000)
   }
 
@@ -44,12 +45,19 @@ class CarbonLine extends Component {
     return utilityCLifespan
   }
 
+  const initialSystemCarbon = () => {
+    let productionImpact = 0
+    this.props.projects.map(project => {
+      productionImpact += project.total_system_carbon_impact_g
+    })
+    return (productionImpact/ 1000000)
+  }
+
   const lifetimeSystemCProgression = () => {
     let systemCLifespan = []
-    let systemCProduction = systemCarbon()
+    let systemCProduction = initialSystemCarbon()
     let i
     for (i = 0; i < 6; i++) {
-      systemCProduction += annualSystemCarbon()
       systemCLifespan.push({x: i, y: systemCProduction})
     }
     return systemCLifespan
@@ -59,7 +67,6 @@ class CarbonLine extends Component {
       <div className="bar-carbon-graph">
         <h4> Carbon Produced Over Lifespan of Systems </h4>
         <LineChart
-          datapoints
           className='line-chart'
           axisLabels={{x: 'Years', y: 'Carbon (MT)'}}
           axes

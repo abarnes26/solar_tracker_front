@@ -36,9 +36,9 @@ class AddNewModuleForm extends Component {
   render() {
     const { redirect } = this.state
     return (
-      <div className="new-branch-form-container">
-        <h2>Add a new PV Module to your Branch</h2>
+      <div className="new-form-container">
         <form className="new-module-form">
+          <h1>Add a new PV Module</h1>
           <input
             className="input"
             type="integer"
@@ -82,7 +82,7 @@ class AddNewModuleForm extends Component {
             onChange={ this.updateField.bind(this, 'lengthMm') }
           />
           <button
-            className="submit-module-button"
+            className="submit-form-button"
             onClick={ this.addPvModule }
           >Create Module
           </button>
