@@ -30,7 +30,7 @@ class AddNewModuleForm extends Component {
     let lengthMm = this.state.lengthMm
     let branchId = this.props.branchId
     postPvModule(outputW, manufacturer, model, efficiency, widthMm, lengthMm, branchId)
-    this.setState({ redirect: true })
+      .then(() => this.setState({ redirect: true }))
   }
 
   render() {

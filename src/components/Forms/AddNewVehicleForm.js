@@ -24,7 +24,7 @@ class AddNewVehicleForm extends Component {
     let mpg = this.state.mpg
     let branchId = this.props.branchId
     postVehicle(branchId, make, model, mpg)
-    this.setState({ redirect: true })
+      .then(() => this.setState({ redirect: true }))
   }
 
   render() {
