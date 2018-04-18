@@ -32,7 +32,7 @@ class CarbonBar extends Component {
         <h4> Carbon Produced by Elec Generation </h4>
         <BarChart
           axisLabels={{ y: 'Carbon (MT)'}}
-          height={450}
+          height={485}
           width={450}
           margin={{top: 10, right: 75, bottom: 75, left: 75}}
           axes

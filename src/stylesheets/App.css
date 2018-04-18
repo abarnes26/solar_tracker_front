@@ -50,7 +50,7 @@ font-size: 25px;
 .branch-carbon-totals {
   display: flex;
   flex-flow: column;
-  height: 700px;
+  height: 740px;
   width: 1100px;
   border: solid 3px black;
   margin-left: 20px;
@@ -200,4 +200,26 @@ font-size: 25px;
 
 .submit-age-button {
   margin-left: 12px;
+}
+
+.legend {
+  display:flex;
+  justify-content: space-around;
+  width: 250px;
+}
+
+.utility-legend, .solar-legend {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  margin-top: 15px;
+  padding-top: -10px;
+}
+
+.utility-legend {
+  background-color: #A52A2A;
+}
+
+.solar-legend {
+  background-color: #FFD700;
 }

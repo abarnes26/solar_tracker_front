@@ -27,7 +27,6 @@ const deletePvModuleHeaders = () => {
 }
 
 export const postPvModule = (output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId) => {
-  // return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/pv_modules`, postPvModuleHeaders(output_w, manufacturer, model, efficiency, width_mm, length_mm, branchId))
   return fetch(`https://solar-carbon-tracker-api.herokuapp.com/api/v1/branches/${branchId}/pv_modules?pv_module[output%5Fw]=${output_w}&pv_module[manufacturer]=${manufacturer}&pv_module[model]=${model}&pv_module[efficiency]=${efficiency}&pv_module[width_mm]=${width_mm}&pv_module[length_mm]=${length_mm}`, {method: 'POST'})
     .then(response => response.json())
     .catch((error) => console.error({ error }))
