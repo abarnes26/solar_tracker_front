@@ -37,16 +37,16 @@ class App extends Component {
             	  return <CreateVehicle branchId = {id} />
                 }
             	}/>
-          <Route exact path='/projects/new/branch/:id' render={({ match }) => {
-          	const { id } = match.params
-          	  return <CreateProject branchId = {id} />
-              }
-          	}/>
-          <Route exact path='/branches/:id' render={({ match }) => {
-          	const { id } = match.params
-          	  return <BranchShow branchId = {id} />
-          	}
-          }/>
+            <Route exact path='/projects/new/branch/:id' render={({ match }) => {
+            	const { id } = match.params
+            	  return <CreateProject branchId = {id} />
+                }
+            	}/>
+            <Route exact path='/branches/:id' render={({ match }) => {
+            	const { id } = match.params
+            	  return <BranchShow branchId = {id} />
+              	}
+              }/>
           <Route exact path='/dashboard' component={Dashboard} />
       </div>
     </div>

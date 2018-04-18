@@ -24,7 +24,17 @@ class AgeField extends Component {
         return (
           <div className="age-form-container">
             <form className="age-form">
-              <NumericInput min={0} max={100} value={this.state.age} onChange={ this.updateField }/>
+                <NumericInput
+                  min={0}
+                  max={100}
+                  value={this.state.age}
+                  onChange={ this.updateField }
+                  style={{
+                    input: {
+                        width: '60px'
+                    }
+                  }}
+                  />
               <button
                 className="submit-age-button"
                 onClick={ this.updateAge }

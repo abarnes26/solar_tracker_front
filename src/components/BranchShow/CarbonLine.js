@@ -22,7 +22,6 @@ class CarbonLine extends Component {
     this.props.projects.map(project => {
       systemCarbon += (project.system_carbon_g_per_kWh * project.annual_production_kWh)
     })
-    console.log(systemCarbon)
     return (systemCarbon/ 1000000)
   }
 
@@ -42,7 +41,6 @@ class CarbonLine extends Component {
       utilityCProduction += annualUtilityCarbon()
       utilityCLifespan.push({x: i, y: utilityCProduction})
     }
-    console.log(utilityCLifespan)
     return utilityCLifespan
   }
 
@@ -54,7 +52,6 @@ class CarbonLine extends Component {
       systemCProduction += annualSystemCarbon()
       systemCLifespan.push({x: i, y: systemCProduction})
     }
-    console.log(systemCLifespan)
     return systemCLifespan
   }
     lifetimeSystemCProgression()
