@@ -11,12 +11,7 @@ class NavBar extends Component {
             <img className="nav-bar-icon" src="http://www.free-icons-download.net/images/leaf-icon-72023.png" />
         </div>
         <div className="nav-bar-link-container">
-          <Link to='/' >
-            Home
-          </Link>
-          <Link to='/branches/1' >
-            Branch
-          </Link>
+  
         </div>
       </div>
     )

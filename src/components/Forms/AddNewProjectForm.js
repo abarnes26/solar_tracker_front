@@ -43,8 +43,7 @@ class AddNewProjectForm extends Component {
     let vehicleName = this.state.vehicleName
     let branchId = this.props.branchId
     postProject(street, city, state, zipcode, customerName, sizeKw, numberOfModules, branchId, moduleName, vehicleName)
-    this.setState({ redirect: true })
-
+      .then(() => this.setState({ redirect: true }))
   }
 
   render() {
