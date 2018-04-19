@@ -29,7 +29,7 @@ class CarbonBar extends Component {
   render() {
     return (
       <div className="bar-carbon-graph">
-        <h4> Carbon Produced by Elec Generation </h4>
+        <h4> Carbon Produced by Elec Generation over 30 years </h4>
         <BarChart
           axisLabels={{ y: 'Carbon (MT)'}}
           height={485}
