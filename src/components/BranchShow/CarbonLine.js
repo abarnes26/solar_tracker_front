@@ -65,7 +65,7 @@ class CarbonLine extends Component {
     lifetimeSystemCProgression()
     return (
       <div className="bar-carbon-graph">
-        <h4> Carbon Produced Over Lifespan of Systems </h4>
+        <h4> Carbon Produced Over 5 Years</h4>
         <div className='legend'>
           <p>Utility</p>
           <div className='utility-legend'></div>
