@@ -1,5 +1,5 @@
 # Solar Carbon Tracker - Front End
-link to [back end](https://github.com/abarnes26/solar_tracker_back)
+Link to [back end](https://github.com/abarnes26/solar_tracker_back)
 
 ## Goal of this Project
 - Create an easy to use and intuitive interface for solar installers to use.
